@@ -1,0 +1,49 @@
+# Rime schema settings
+# encoding: utf-8
+
+__include: siyuan.schema:/
+
+schema:
+    schema_id: siyuan-sy
+    name: 私用原碼
+    version: "0.0"
+    author:
+        - 陳林 <1chen0bryan@gmail.com>
+    dependencies:
+        - luna_pinyin
+        - pinyin_simp
+
+speller:
+    alphabet: zyxwvutsrqponmlkjihgfedcba,.'?=
+    initials: zyxwvutsrqponmlkjihgfedcba?
+    max_code_length: 4
+
+translator:
+    dictionary: siyuan-wb
+    enable_user_dict: false
+
+no_max_code:
+  tag: no_max_code
+  dictionary: siyuan-wb
+  prefix: ","
+  tips: 〔不限長〕
+
+key_binder:
+    import_preset: default
+    bindings:
+      - { when: has_menu, accept: period, send: period }
+      - { when: has_menu, accept: comma, send: comma }
+      - { when: composing, accept: Tab, send: equal }
+
+selector:
+  bindings:
+    Tab: ""
+
+recognizer:
+  patterns:
+    no_max_code: "^,.*$"
+    reverse_lookup: "`[a-z]*'?$|[a-z]+'$"
+
+xinzheng:
+  special_symbol: "="
+  special_keys: ["Tab"]
