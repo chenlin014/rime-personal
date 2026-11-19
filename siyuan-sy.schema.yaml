@@ -16,7 +16,8 @@ schema:
 speller:
     alphabet: zyxwvutsrqponmlkjihgfedcba,.'?=
     initials: zyxwvutsrqponmlkjihgfedcba?
-    max_code_length: 4
+    auto_select_pattern: ".+="
+    max_code_length: 5
 
 translator:
     dictionary: siyuan-wb
@@ -25,7 +26,7 @@ translator:
 no_max_code:
   tag: no_max_code
   dictionary: siyuan-wb
-  prefix: ","
+  prefix: "'"
   tips: 〔不限長〕
 
 key_binder:
@@ -41,7 +42,7 @@ selector:
 
 recognizer:
   patterns:
-    no_max_code: "^,.*$"
+    no_max_code: "^'[a-z,.'?]*$"
     reverse_lookup: "`[a-z]*'?$|[a-z]+'$"
 
 xinzheng:
